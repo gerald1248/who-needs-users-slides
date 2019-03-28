@@ -17,7 +17,7 @@ center: true
 .---------------------------------------------.
 |[c]                                          |
 |                                             |
-|    What's pizza got to do with anything?    |
+|                                             |
 |                                             |
 |                                             |
 '---------------------------------------------'
@@ -139,11 +139,11 @@ Kubernetes->OpenShift : declarative API objects
 @enduml
 ```
 
-# NAMESPACES
+# NAMESPACES {bg=#6a2469 .light-on-dark}
 
 ```render_a2sketch
 #=----------------------------#
-|                             |
+|[w]                          |
 | Cluster                     |
 |                             |
 | #----------#   #----------# |
@@ -165,6 +165,7 @@ Kubernetes->OpenShift : declarative API objects
 
 [p]: {"a2s:delref": true, "fill": "#ef5ba1", "fillStyle": "solid"}
 [b]: {"a2s:delref": true, "fill": "#27bdce", "fillStyle": "solid"}
+[w]: {"a2s:delref": true, "fill": "#fff", "fillStyle": "solid"}
 ```
 
 # ENABLE ROUTER ACCESS {bg=#6a2469 .light-on-dark}
@@ -201,7 +202,173 @@ Kubernetes->OpenShift : declarative API objects
 $ oc adm pod-network join-projects --to Router Boeing Airbus
 ```
 
-<small class="tiny">Projects are a very, very thin wrapper around Kubernetes namespaces.</small>
+# THE GOAL  {bg=#fff44d}
+
+<svg width="600pt"
+ viewBox="0.00 0.00 1145.16 344.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<!--<svg width="1145pt" height="344pt"
+ viewBox="0.00 0.00 1145.16 344.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">-->
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 340)">
+<title>podNetwork</title>
+<polygon fill="transparent" stroke="transparent" points="-4,4 -4,-340 1141.1597,-340 1141.1597,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_1</title>
+<polygon fill="#ffffff" stroke="#000000" points="63.1597,-8 63.1597,-82 271.1597,-82 271.1597,-8 63.1597,-8"/>
+<text text-anchor="middle" x="167.1597" y="-66.8" font-family="sans-serif" font-size="14.00" fill="#000000">egress&#45;isolated</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_2</title>
+<polygon fill="#ffffff" stroke="#000000" points="605.1597,-254 605.1597,-328 919.1597,-328 919.1597,-254 605.1597,-254"/>
+<text text-anchor="middle" x="762.1597" y="-312.8" font-family="sans-serif" font-size="14.00" fill="#000000">eve</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_3</title>
+<polygon fill="#ffffff" stroke="#000000" points="276.1597,-90 276.1597,-164 484.1597,-164 484.1597,-90 276.1597,-90"/>
+<text text-anchor="middle" x="380.1597" y="-148.8" font-family="sans-serif" font-size="14.00" fill="#000000">global</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_4</title>
+<polygon fill="#ffffff" stroke="#000000" points="276.1597,-172 276.1597,-328 597.1597,-328 597.1597,-172 276.1597,-172"/>
+<text text-anchor="middle" x="436.6597" y="-312.8" font-family="sans-serif" font-size="14.00" fill="#000000">ingress&#45;isolated&#45;whitelist</text>
+</g>
+<g id="clust5" class="cluster">
+<title>cluster_5</title>
+<polygon fill="#ffffff" stroke="#000000" points="66.1597,-172 66.1597,-246 268.1597,-246 268.1597,-172 66.1597,-172"/>
+<text text-anchor="middle" x="167.1597" y="-230.8" font-family="sans-serif" font-size="14.00" fill="#000000">ingress&#45;isolated</text>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_6</title>
+<polygon fill="#ffffff" stroke="#000000" points="927.1597,-254 927.1597,-328 1129.1597,-328 1129.1597,-254 927.1597,-254"/>
+<text text-anchor="middle" x="1028.1597" y="-312.8" font-family="sans-serif" font-size="14.00" fill="#000000">isolated</text>
+</g>
+<!-- httpd&#45;79f9f6586f&#45;7n95b -->
+<g id="node1" class="node">
+<title>httpd&#45;79f9f6586f&#45;7n95b</title>
+<ellipse fill="none" stroke="#000000" cx="167.1597" cy="-34" rx="96.1431" ry="18"/>
+<text text-anchor="middle" x="167.1597" y="-29.8" font-family="sans-serif" font-size="14.00" fill="#000000">httpd&#45;79f9f6586f&#45;7n95b</text>
+</g>
+<!-- httpd&#45;79f9f6586f&#45;7kpg6 -->
+<g id="node2" class="node">
+<title>httpd&#45;79f9f6586f&#45;7kpg6</title>
+<ellipse fill="none" stroke="#000000" cx="815.1597" cy="-280" rx="96.1431" ry="18"/>
+<text text-anchor="middle" x="815.1597" y="-275.8" font-family="sans-serif" font-size="14.00" fill="#000000">httpd&#45;79f9f6586f&#45;7kpg6</text>
+</g>
+<!-- httpd&#45;bob -->
+<g id="node7" class="node">
+<title>httpd&#45;bob</title>
+<ellipse fill="none" stroke="#000000" cx="541.1597" cy="-198" rx="44.4923" ry="18"/>
+<text text-anchor="middle" x="541.1597" y="-193.8" font-family="sans-serif" font-size="14.00" fill="#000000">httpd&#45;bob</text>
+</g>
+<!-- httpd&#45;79f9f6586f&#45;7kpg6&#45;&gt;httpd&#45;bob -->
+<g id="edge10" class="edge">
+<title>httpd&#45;79f9f6586f&#45;7kpg6&#45;&gt;httpd&#45;bob</title>
+<path fill="none" stroke="#000000" d="M763.9439,-264.6726C713.0804,-249.4507 635.8197,-226.3289 586.9444,-211.702"/>
+<polygon fill="#000000" stroke="#000000" points="587.8487,-208.3193 577.265,-208.8052 585.8417,-215.0254 587.8487,-208.3193"/>
+</g>
+<!-- httpd&#45;eve -->
+<g id="node3" class="node">
+<title>httpd&#45;eve</title>
+<ellipse fill="none" stroke="#000000" cx="657.1597" cy="-280" rx="43.506" ry="18"/>
+<text text-anchor="middle" x="657.1597" y="-275.8" font-family="sans-serif" font-size="14.00" fill="#000000">httpd&#45;eve</text>
+</g>
+<!-- httpd&#45;eve&#45;&gt;httpd&#45;bob -->
+<g id="edge11" class="edge">
+<title>httpd&#45;eve&#45;&gt;httpd&#45;bob</title>
+<path fill="none" stroke="#000000" d="M635.068,-264.3834C617.2024,-251.7543 591.843,-233.8278 571.9795,-219.7864"/>
+<polygon fill="#000000" stroke="#000000" points="573.7505,-216.7521 563.5644,-213.8377 569.7098,-222.4682 573.7505,-216.7521"/>
+</g>
+<!-- httpd&#45;79f9f6586f&#45;zg949 -->
+<g id="node4" class="node">
+<title>httpd&#45;79f9f6586f&#45;zg949</title>
+<ellipse fill="none" stroke="#000000" cx="380.1597" cy="-116" rx="95.65" ry="18"/>
+<text text-anchor="middle" x="380.1597" y="-111.8" font-family="sans-serif" font-size="14.00" fill="#000000">httpd&#45;79f9f6586f&#45;zg949</text>
+</g>
+<!-- httpd&#45;79f9f6586f&#45;zg949&#45;&gt;httpd&#45;79f9f6586f&#45;7n95b -->
+<g id="edge12" class="edge">
+<title>httpd&#45;79f9f6586f&#45;zg949&#45;&gt;httpd&#45;79f9f6586f&#45;7n95b</title>
+<path fill="none" stroke="#000000" d="M338.0778,-99.7994C303.9105,-86.6458 255.5739,-68.0374 219.0177,-53.9641"/>
+<polygon fill="#000000" stroke="#000000" points="220.1081,-50.6335 209.5183,-50.307 217.5931,-57.1661 220.1081,-50.6335"/>
+</g>
+<!-- httpd&#45;79f9f6586f&#45;n7zlw -->
+<g id="node5" class="node">
+<title>httpd&#45;79f9f6586f&#45;n7zlw</title>
+<ellipse fill="none" stroke="#000000" cx="380.1597" cy="-280" rx="95.65" ry="18"/>
+<text text-anchor="middle" x="380.1597" y="-275.8" font-family="sans-serif" font-size="14.00" fill="#000000">httpd&#45;79f9f6586f&#45;n7zlw</text>
+</g>
+<!-- httpd&#45;79f9f6586f&#45;n7zlw&#45;&gt;httpd&#45;79f9f6586f&#45;7n95b -->
+<g id="edge1" class="edge">
+<title>httpd&#45;79f9f6586f&#45;n7zlw&#45;&gt;httpd&#45;79f9f6586f&#45;7n95b</title>
+<path fill="none" stroke="#000000" d="M285.439,-277.1789C188.2635,-273.2836 48.9577,-264.5191 32.1597,-246 -14.4218,-194.6456 -6.345,-147.6584 32.1597,-90 45.0486,-70.6997 65.9605,-58.0423 87.5172,-49.7447"/>
+<polygon fill="#000000" stroke="#000000" points="88.8533,-52.9845 97.1057,-46.34 86.5109,-46.388 88.8533,-52.9845"/>
+</g>
+<!-- httpd&#45;79f9f6586f&#45;n7zlw&#45;&gt;httpd&#45;79f9f6586f&#45;zg949 -->
+<g id="edge2" class="edge">
+<title>httpd&#45;79f9f6586f&#45;n7zlw&#45;&gt;httpd&#45;79f9f6586f&#45;zg949</title>
+<path fill="none" stroke="#000000" d="M380.1597,-261.8225C380.1597,-233.3769 380.1597,-178.1152 380.1597,-144.3904"/>
+<polygon fill="#000000" stroke="#000000" points="383.6598,-144.2589 380.1597,-134.2589 376.6598,-144.2589 383.6598,-144.2589"/>
+</g>
+<!-- httpd&#45;alice -->
+<g id="node6" class="node">
+<title>httpd&#45;alice</title>
+<ellipse fill="none" stroke="#000000" cx="541.1597" cy="-280" rx="47.841" ry="18"/>
+<text text-anchor="middle" x="541.1597" y="-275.8" font-family="sans-serif" font-size="14.00" fill="#000000">httpd&#45;alice</text>
+</g>
+<!-- httpd&#45;alice&#45;&gt;httpd&#45;79f9f6586f&#45;7n95b -->
+<g id="edge3" class="edge">
+<title>httpd&#45;alice&#45;&gt;httpd&#45;79f9f6586f&#45;7n95b</title>
+<path fill="none" stroke="#000000" d="M514.6286,-264.938C505.5682,-260.5485 495.1865,-256.3138 485.1597,-254 473.7086,-251.3575 70.3908,-254.3882 62.1597,-246 7.6602,-190.46 91.3316,-101.0176 138.5148,-58.2698"/>
+<polygon fill="#000000" stroke="#000000" points="140.887,-60.8439 146.0255,-51.5785 136.2306,-55.6172 140.887,-60.8439"/>
+</g>
+<!-- httpd&#45;alice&#45;&gt;httpd&#45;79f9f6586f&#45;zg949 -->
+<g id="edge4" class="edge">
+<title>httpd&#45;alice&#45;&gt;httpd&#45;79f9f6586f&#45;zg949</title>
+<path fill="none" stroke="#000000" d="M514.143,-264.904C505.4409,-259.4705 496.0221,-252.9514 488.1597,-246 452.2575,-214.2577 418.2067,-170.1044 398.2581,-142.296"/>
+<polygon fill="#000000" stroke="#000000" points="400.9302,-140.0132 392.2924,-133.8781 395.219,-144.0607 400.9302,-140.0132"/>
+</g>
+<!-- httpd&#45;alice&#45;&gt;httpd&#45;bob -->
+<g id="edge5" class="edge">
+<title>httpd&#45;alice&#45;&gt;httpd&#45;bob</title>
+<path fill="none" stroke="#000000" d="M541.1597,-261.8015C541.1597,-251.3976 541.1597,-238.1215 541.1597,-226.3768"/>
+<polygon fill="#000000" stroke="#000000" points="544.6598,-226.1476 541.1597,-216.1476 537.6598,-226.1476 544.6598,-226.1476"/>
+</g>
+<!-- httpd&#45;bob&#45;&gt;httpd&#45;79f9f6586f&#45;7n95b -->
+<g id="edge6" class="edge">
+<title>httpd&#45;bob&#45;&gt;httpd&#45;79f9f6586f&#45;7n95b</title>
+<path fill="none" stroke="#000000" d="M537.5815,-179.8313C531.7471,-155.3212 517.7311,-112.1854 488.1597,-90 453.9315,-64.3208 348.0615,-49.4356 267.174,-41.5546"/>
+<polygon fill="#000000" stroke="#000000" points="267.2264,-38.0439 256.94,-40.5816 266.5638,-45.0125 267.2264,-38.0439"/>
+</g>
+<!-- httpd&#45;bob&#45;&gt;httpd&#45;79f9f6586f&#45;zg949 -->
+<g id="edge7" class="edge">
+<title>httpd&#45;bob&#45;&gt;httpd&#45;79f9f6586f&#45;zg949</title>
+<path fill="none" stroke="#000000" d="M513.4829,-183.9037C488.4147,-171.136 451.1106,-152.1365 422.3318,-137.4789"/>
+<polygon fill="#000000" stroke="#000000" points="423.8132,-134.3057 413.3139,-132.886 420.6363,-140.5433 423.8132,-134.3057"/>
+</g>
+<!-- httpd&#45;79f9f6586f&#45;tpcs7 -->
+<g id="node8" class="node">
+<title>httpd&#45;79f9f6586f&#45;tpcs7</title>
+<ellipse fill="none" stroke="#000000" cx="167.1597" cy="-198" rx="92.7602" ry="18"/>
+<text text-anchor="middle" x="167.1597" y="-193.8" font-family="sans-serif" font-size="14.00" fill="#000000">httpd&#45;79f9f6586f&#45;tpcs7</text>
+</g>
+<!-- httpd&#45;79f9f6586f&#45;tpcs7&#45;&gt;httpd&#45;79f9f6586f&#45;7n95b -->
+<g id="edge8" class="edge">
+<title>httpd&#45;79f9f6586f&#45;tpcs7&#45;&gt;httpd&#45;79f9f6586f&#45;7n95b</title>
+<path fill="none" stroke="#000000" d="M167.1597,-179.8225C167.1597,-151.3769 167.1597,-96.1152 167.1597,-62.3904"/>
+<polygon fill="#000000" stroke="#000000" points="170.6598,-62.2589 167.1597,-52.2589 163.6598,-62.2589 170.6598,-62.2589"/>
+</g>
+<!-- httpd&#45;79f9f6586f&#45;tpcs7&#45;&gt;httpd&#45;79f9f6586f&#45;zg949 -->
+<g id="edge9" class="edge">
+<title>httpd&#45;79f9f6586f&#45;tpcs7&#45;&gt;httpd&#45;79f9f6586f&#45;zg949</title>
+<path fill="none" stroke="#000000" d="M208.9876,-181.8973C243.2422,-168.71 291.8625,-149.9924 328.537,-135.8736"/>
+<polygon fill="#000000" stroke="#000000" points="329.989,-139.065 338.0639,-132.2059 327.4741,-132.5324 329.989,-139.065"/>
+</g>
+<!-- httpd&#45;79f9f6586f&#45;bjjtm -->
+<g id="node9" class="node">
+<title>httpd&#45;79f9f6586f&#45;bjjtm</title>
+<ellipse fill="none" stroke="#000000" cx="1028.1597" cy="-280" rx="92.7688" ry="18"/>
+<text text-anchor="middle" x="1028.1597" y="-275.8" font-family="sans-serif" font-size="14.00" fill="#000000">httpd&#45;79f9f6586f&#45;bjjtm</text>
+</g>
+</g>
+</svg>
 
 # WHAT THE PARSER SAW
 
@@ -211,7 +378,7 @@ scale 550 height
 (*) -down-> "NetworkPolicy object found"
 note right: let's ignore policies in other namespaces for now
 -down-> "Which pods in the namespace are affected by this policy?"
---> "policy type INgress set (or none)?"
+--> "policy type Ingress set (or none)?"
 if "" then
   -->[true] "block all incoming traffic"
   --> "whitelist any pods/namespaces selected under ingress.from"
