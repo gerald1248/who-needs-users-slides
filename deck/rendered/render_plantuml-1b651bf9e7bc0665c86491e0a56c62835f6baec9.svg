@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="186px" preserveAspectRatio="none" style="width:265px;height:186px;" version="1.1" viewBox="0 0 265 186" width="265px" zoomAndPan="magnify"><defs><filter height="300%" id="f1p8yjlj2bqu7d" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="54" x2="54" y1="38.4359" y2="146.222"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="216.5" x2="216.5" y1="38.4359" y2="146.222"/><rect fill="#FEFECE" filter="url(#f1p8yjlj2bqu7d)" height="30.4359" style="stroke: #A80036; stroke-width: 1.5;" width="89" x="8" y="3"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="75" x="15" y="23.1599">Kubernetes</text><rect fill="#FEFECE" filter="url(#f1p8yjlj2bqu7d)" height="30.4359" style="stroke: #A80036; stroke-width: 1.5;" width="89" x="8" y="145.222"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="75" x="15" y="165.3819">Kubernetes</text><rect fill="#FEFECE" filter="url(#f1p8yjlj2bqu7d)" height="30.4359" style="stroke: #A80036; stroke-width: 1.5;" width="80" x="174.5" y="3"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="66" x="181.5" y="23.1599">OpenShift</text><rect fill="#FEFECE" filter="url(#f1p8yjlj2bqu7d)" height="30.4359" style="stroke: #A80036; stroke-width: 1.5;" width="80" x="174.5" y="145.222"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="66" x="181.5" y="165.3819">OpenShift</text><polygon fill="#A80036" points="204.5,65.6979,214.5,69.6979,204.5,73.6979,208.5,69.6979" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="54.5" x2="210.5" y1="69.6979" y2="69.6979"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="118" x="61.5" y="64.6559">feature unavailable</text><polygon fill="#A80036" points="65.5,94.96,55.5,98.96,65.5,102.96,61.5,98.96" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="59.5" x2="215.5" y1="98.96" y2="98.96"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="119" x="71.5" y="93.918">imperative API calls</text><polygon fill="#A80036" points="204.5,124.222,214.5,128.222,204.5,132.222,208.5,128.222" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="54.5" x2="210.5" y1="128.222" y2="128.222"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="138" x="61.5" y="123.18">declarative API objects</text><!--
+@startuml
+skinparamlocked backgroundcolor transparent
+skinparamlocked backgroundcolor transparent
+Kubernetes->OpenShift : feature unavailable
+OpenShift->Kubernetes : imperative API calls
+Kubernetes->OpenShift : declarative API objects 
+@enduml
+
+PlantUML version 1.2018.10(Sat Aug 25 17:02:59 GMT 2018)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_181-b13
+Operating System: Linux
+OS Version: 4.9.125-linuxkit
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

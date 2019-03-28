@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="288" height="352" version="1.1" viewBox="0 0 216 264">
+    <defs>
+        <pattern id="pattern0" width="216" height="264" patternUnits="userSpaceOnUse">
+            <use xlink:href="#image321"/>
+        </pattern>
+    </defs>
+    <g id="surface315">
+        <path fill="url(#pattern0)" fill-rule="nonzero" stroke="none" d="M4.5 8h270v304H4.5zm0 0" transform="scale(.75)"/>
+        <path fill="none" stroke="#000" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-opacity="1" stroke-width="1.5" d="M5.44 6.891c62.03-3.845 126.607-4.322 202.908-.306M3.085 6.624c76.922-.484 152.174.498 202.749 1.62m-.217-.108c2.402 47.81 2.71 93.378 2.936 225.407M205.944 7.435c-1.365 79.863-2.174 159.185 1.087 228.23m-.395-.373c-44.063.803-92.997.718-201.176.545m201.035-.105c-48.486.345-97.491.383-202.685-.604m1.202-1.681C.882 164.808 1.005 91.115 2.37 6.866m.27 229.383C6.808 160.966 7.198 87.84 4.147 7.83"/>
+        <path fill="#ef5ba1" fill-opacity="1" fill-rule="nonzero" stroke="none" d="M22.5 72h99v96h-99zm0 0" transform="scale(.75)"/>
+        <path fill="none" stroke="#000" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-opacity="1" stroke-width="1.5" d="M18.542 53.37c22.195.17 46.87 3.891 72.855-.979m-72.102 1.78c14.868-1.786 31.772-.25 73.242.233m1.436 1.339c-1.082 16.137-.323 34.714.33 71.528m-.667-72.949c-1.975 20.517-.735 42.984-.915 71.004m-1.127.914c-17.01 1.497-34.392.498-71.74-2.112m72.34 2.347c-20.185-.7-40.799.1-74.223-.912m1.578 2.4c-3.289-24.566-1.687-50.602-1.168-72.038m.633 70.992c-2.49-16.922-2.42-33.064.343-73.055"/>
+        <path fill="#27bdce" fill-opacity="1" fill-rule="nonzero" stroke="none" d="M157.5 72h99v96h-99zm0 0" transform="scale(.75)"/>
+        <path fill="none" stroke="#000" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-opacity="1" stroke-width="1.5" d="M118.025 53.086c21.68.138 46.304-.641 72.797-.9m-72.015-.515c23.274 1.808 47.423 3.463 73.038 1.005m1.347-.033c-2.092 15.165-2.033 30.844-.492 73.68m-.612-74.588c-.826 22.567-.797 47.716.855 72.457m-.258-.94c-14.97 1.506-30.591-2.324-76.455 2.141m76.426-.263c-26.379-.894-53.25-1.594-74.932.328m-.762-.993c-.205-19.453-.076-38.567-.217-71.23m.621 71.998c-.677-21.098.325-42.516.8-73.612"/>
+    </g>
+    <defs xmlns="http://www.w3.org/2000/svg">
+        <filter id="dsFilterNoBlur" width="150%" height="150%">
+            <feOffset dx="3" dy="3" in="SourceGraphic" result="offOut"/>
+            <feColorMatrix in="offOut" result="matrixOut" type="matrix" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"/>
+            <feBlend in="SourceGraphic" in2="matrixOut" mode="normal"/>
+        </filter>
+        <filter id="dsFilter" width="150%" height="150%">
+            <feOffset dx="3" dy="3" in="SourceGraphic" result="offOut"/>
+            <feColorMatrix in="offOut" result="matrixOut" type="matrix" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"/>
+            <feGaussianBlur in="matrixOut" result="blurOut" stdDeviation="3"/>
+            <feBlend in="SourceGraphic" in2="blurOut" mode="normal"/>
+        </filter>
+        <marker id="iPointer-817nrqpfg65" fill="#000" markerHeight="7" markerUnits="strokeWidth" markerWidth="8" orient="auto" refX="5" refY="5" viewBox="0 0 10 10">
+            <path d="M10 0v10L0 5z"/>
+        </marker>
+        <marker id="Pointer-817nrqpfg65" fill="#000" markerHeight="7" markerUnits="strokeWidth" markerWidth="8" orient="auto" refX="5" refY="5" viewBox="0 0 10 10">
+            <path d="M0 0l10 5-10 5z"/>
+        </marker>
+    </defs>
+    <defs>
+        <style type="text/css">
+            @font-face{font-family:&quot;xkcd Script&quot;;src:url(./xkcd-script.ttf)}
+        </style>
+    </defs>
+    ??
+    <text id="text0" x="12.825" y="33.6" fill="#000" stroke="none" font-family="xkcd Script" font-size="15">
+        Cluster
+    </text>
+    <text id="text1" x="26.325" y="81.6" fill="#fff" stroke="none" font-family="xkcd Script" font-size="15">
+        Boeing
+    </text>
+    <text id="text2" x="127.575" y="81.6" fill="#fff" stroke="none" font-family="xkcd Script" font-size="15">
+        Airbus
+    </text>
+</svg>
