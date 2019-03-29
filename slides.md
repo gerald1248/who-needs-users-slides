@@ -411,7 +411,7 @@ metadata:
   labels:
     app: ingress-isolated-whitelist
   annotations:
-    networking.k8s.io/netnamespace/id: 100
+    networking.k8s.io/netnamespace-id: "100"
 ```
 
 # BEWARE ROUGH EDGES
