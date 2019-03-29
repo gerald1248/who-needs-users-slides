@@ -317,9 +317,9 @@ ingress:
   - namespaceSelector:
       matchLabels:
         user: alice
-      podSelector:
-        matchLabels:
-          role: client
+    podSelector:
+      matchLabels:
+        role: client
 ```
 
 <small>is not at all the same as:</small>

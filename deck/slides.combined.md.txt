@@ -317,9 +317,9 @@ ingress:
   - namespaceSelector:
       matchLabels:
         user: alice
-      podSelector:
-        matchLabels:
-          role: client
+    podSelector:
+      matchLabels:
+        role: client
 ```
 
 <small>is not at all the same as:</small>
@@ -411,7 +411,7 @@ metadata:
   labels:
     app: ingress-isolated-whitelist
   annotations:
-    networking.k8s.io/netnamespace/id: 100
+    networking.k8s.io/netnamespace-id: "100"
 ```
 
 # BEWARE ROUGH EDGES

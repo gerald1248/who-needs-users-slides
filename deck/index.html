@@ -614,9 +614,9 @@ spec:
   - namespaceSelector:
       matchLabels:
         user: alice
-      podSelector:
-        matchLabels:
-          role: client</code></pre>
+    podSelector:
+      matchLabels:
+        role: client</code></pre>
 <p><small>is not at all the same as:</small></p>
 <pre class="yaml"><code>ingress:
 - from:
@@ -771,7 +771,7 @@ metadata:
   labels:
     app: ingress-isolated-whitelist
   annotations:
-    networking.k8s.io/netnamespace/id: 100</code></pre>
+    networking.k8s.io/netnamespace-id: &quot;100&quot;</code></pre>
 </section>
 <section id="beware-rough-edges" class="level1">
 <h1>BEWARE ROUGH EDGES</h1>
