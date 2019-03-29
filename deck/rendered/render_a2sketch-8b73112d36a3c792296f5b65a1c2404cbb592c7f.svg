@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="568" height="384" version="1.1" viewBox="0 0 426 288">
+    <path id="surface384" fill="none" stroke="#000" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-opacity="1" stroke-width="1.5" d="M205.354 101.32c.738-13.977-26.397-22.76-61.105-22.954m60.003 22.066c-1.213-13.924-23.965-21.515-60.569-24.957m0 0c-30.544 1.578-58.514 12-60.673 24.77m59.698-25.673c-31.116 2.63-56.56 15.595-59.285 25.922m0 0c-1.058 13.933 27.085 22.14 61.087 24.31m-59.766-23.109c.434 14.64 28.228 22.026 60.03 24.211m0 0c32.267-2.754 61.086-13.02 58.56-25.678m-57.292 25.608c32.115-3.677 59.754-12.8 58.201-24.88m-.146-.017c.328-.85.844-.606 1.137.258m-.985-.19c.24-.885.513-.653 1.163.313M62.294 4.564c4.772 82.236 2.006 161.828.108 240.615M64.166 5.704c-2.1 71.112-1.535 142.717-1.081 240.334m-.188.205c80.631 3.747 162.587 4.02 352.752-.78m-351.697-.731c117.006-1.533 234.14.41 351.027.39M98.218 152.54c2.317-1.105 3.922-.39 7.596-.967m-7.825.718c2.54-.65 5.194-.937 7.037.199m34.196-1.65c.776 2.646 3.36 3.458 7.104 1.041m-7.605-.32c1.37.036 3.228.372 6.603-.266m33.712-2.57c2.218-1.013 2.675.405 6.155.229m-6.237.513c1.532.999 3.047 1.145 6.161-.543m33.238 1.053c.568 2.95 4.007 1.827 7.098.662m-7.983-.71c2.136-.97 3.292-.796 6.972-.301m36.188-1.002c1.271-.955 4.282-.586 7.94-.533m-7.786.348c1.88 1.55 4.437 1.413 6.654.422m33.762 2.485c1.7-1.603 3.167-.235 7.896.618m-7.362-.718c1.927 1.772 3.424 2.142 7.171.765m29.32-2.66c1.237-.19 3.574-.32 8.288.922m-7.684-.48c2.189-.627 3.325-.196 6.495-.656"/>
+    <defs xmlns="http://www.w3.org/2000/svg">
+        <filter id="dsFilterNoBlur" width="150%" height="150%">
+            <feOffset dx="3" dy="3" in="SourceGraphic" result="offOut"/>
+            <feColorMatrix in="offOut" result="matrixOut" type="matrix" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"/>
+            <feBlend in="SourceGraphic" in2="matrixOut" mode="normal"/>
+        </filter>
+        <filter id="dsFilter" width="150%" height="150%">
+            <feOffset dx="3" dy="3" in="SourceGraphic" result="offOut"/>
+            <feColorMatrix in="offOut" result="matrixOut" type="matrix" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"/>
+            <feGaussianBlur in="matrixOut" result="blurOut" stdDeviation="3"/>
+            <feBlend in="SourceGraphic" in2="blurOut" mode="normal"/>
+        </filter>
+        <marker id="iPointer-2ppkzdhv7z9" fill="#000" markerHeight="7" markerUnits="strokeWidth" markerWidth="8" orient="auto" refX="5" refY="5" viewBox="0 0 10 10">
+            <path d="M10 0v10L0 5z"/>
+        </marker>
+        <marker id="Pointer-2ppkzdhv7z9" fill="#000" markerHeight="7" markerUnits="strokeWidth" markerWidth="8" orient="auto" refX="5" refY="5" viewBox="0 0 10 10">
+            <path d="M0 0l10 5-10 5z"/>
+        </marker>
+    </defs>
+    <defs>
+        <style type="text/css">
+            @font-face{font-family:&quot;xkcd Script&quot;;src:url(./xkcd-script.ttf)}
+        </style>
+    </defs>
+    <g xmlns="http://www.w3.org/2000/svg" id="lines-2ppkzdhv7z9" fill="none" stroke="#000" stroke-width="2" transform="scale(.75)">
+        <g id="group222">
+            <path id="path222" marker-end="url(#Pointer-2ppkzdhv7z9)" marker-start="url(#iPointer-2ppkzdhv7z9)" d="M85.5 8v320h468"/>
+        </g>
+        <g id="group354">
+            <path id="path354" d="M130.5 200h9"/>
+        </g>
+        <g id="group498">
+            <path id="path498" d="M184.5 200h9"/>
+        </g>
+        <g id="group642">
+            <path id="path642" d="M238.5 200h9"/>
+        </g>
+        <g id="group786">
+            <path id="path786" d="M292.5 200h9"/>
+        </g>
+        <g id="group930">
+            <path id="path930" d="M346.5 200h9"/>
+        </g>
+        <g id="group1074">
+            <path id="path1074" d="M400.5 200h9"/>
+        </g>
+        <g id="group1218">
+            <path id="path1218" d="M454.5 200h9"/>
+        </g>
+        <g id="group1362">
+            <path id="path1362" d="M508.5 200h9"/>
+        </g>
+    </g>
+    <text id="text3" x="87.075" y="105.6" fill="#000" stroke="none" font-family="xkcd Script" font-size="15">
+        •
+    </text>
+    <text id="text4" x="100.575" y="105.6" fill="#000" stroke="none" font-family="xkcd Script" font-size="15">
+        ovs-multitenant
+    </text>
+    <text id="text0" x="-.675" y="21.6" fill="#000" font-family="xkcd Script" font-size="15">
+        features
+    </text>
+    <text id="text1" x="309.825" y="21.6" fill="#000" font-family="xkcd Script" font-size="15">
+        •
+    </text>
+    <text id="text2" x="323.325" y="21.6" fill="#000" font-family="xkcd Script" font-size="15">
+        NetworkPolicy
+    </text>
+    <text id="text5" x="336.825" y="141.6" fill="#000" font-family="xkcd Script" font-size="15">
+        good enough
+    </text>
+    <text id="text6" x="336.825" y="165.6" fill="#000" font-family="xkcd Script" font-size="15">
+        won&apos;t work
+    </text>
+    <text id="text7" x="343.575" y="261.6" fill="#000" font-family="xkcd Script" font-size="15">
+        complexity
+    </text>
+</svg>
