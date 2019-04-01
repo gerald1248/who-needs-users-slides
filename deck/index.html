@@ -75,7 +75,7 @@
 </svg>
 </p>
 <aside class="notes" data-markdown>
-And what’s pizza got to do with anything?
+This is an attempt to examine a worrying trend to every greater complexity in the Kubernetes world.
 </aside>
 </section>
 <section id="end-users-beware" class="level1">
@@ -131,6 +131,7 @@ And what’s pizza got to do with anything?
 Source: <a href="https://twitter.com/kelseyhightower/status/1099710178545434625"><span class="citation" data-cites="kelseyhightower">@kelseyhightower</span> on 24 Feb 2019</a>.
 </div>
 <aside class="notes" data-markdown>
+It’s worth stressing that nobody has done more to bring users to the Kubernetes platform than Kelsey Hightower. He also doesn’t mention end users here, though it’s probably fair to say he implies Kubernetes is not for them.
 </aside>
 </section>
 <section id="all-happy-families" class="level1 light-on-dark" data-bgcss="tw-bg-light-blue" data-state="tw-bg-light-blue">
@@ -198,6 +199,7 @@ Source: <a href="https://twitter.com/kelseyhightower/status/1099710178545434625"
 </svg>
 </p>
 <aside class="notes" data-markdown>
+This position (there are platforms for end users and others for platform builders) is absolutely fine in a vibrant ecosystem of container schedulers. There’s no doubt developers love Docker Swarm, for example.
 </aside>
 </section>
 <section id="splendid-isolation" class="level1 light-on-dark" data-bgcss="tw-bg-light-blue" data-state="tw-bg-light-blue">
@@ -238,6 +240,7 @@ Source: <a href="https://twitter.com/kelseyhightower/status/1099710178545434625"
 </svg>
 </p>
 <aside class="notes" data-markdown>
+However, that is not the ecosystem we have today. It seems odd to let Kubernetes displace all contenders only to say that it’s for platform builders only.
 </aside>
 </section>
 <section id="pizza-effects-identity" class="level1">
@@ -262,6 +265,9 @@ Default Encoding: UTF-8
 Language: en
 Country: US
 --></g></svg></p>
+<aside class="notes" data-markdown>
+Since Red Hat embraced Kubernetes for OpenShift 3+, there have been numerous virtuous pizza effects, large and small. RBAC is an example that has worked particularly well.
+</aside>
 </section>
 <section id="pizza-effects-networking" class="level1">
 <h1>PIZZA EFFECTS: NETWORKING</h1>
@@ -286,6 +292,9 @@ Default Encoding: UTF-8
 Language: en
 Country: US
 --></g></svg></p>
+<aside class="notes" data-markdown>
+Network policies have arguably been less successful. The question is whether network policies warrant the considerable amount of added complexity when placed alongside Red Hat’s original <code>ovs-multitenant</code> plugin.
+</aside>
 </section>
 <section id="pizza-effects-generic" class="level1">
 <h1>PIZZA EFFECTS: GENERIC</h1>
@@ -309,9 +318,12 @@ Default Encoding: UTF-8
 Language: en
 Country: US
 --></g></svg></p>
+<aside class="notes" data-markdown>
+In very general terms, OpenShift fills an important functionality gap. Typically an imperative API is supplied via <code>oc</code>; the versino adopted upstream tends to be more generic, more powerful and far more complex.
+</aside>
 </section>
-<section id="multi-tenancy" class="level1 light-on-dark" data-bg="#6a2469" data-background="#6a2469">
-<h1>MULTI-TENANCY</h1>
+<section id="multitenancy" class="level1 light-on-dark" data-bg="#6a2469" data-background="#6a2469">
+<h1>MULTITENANCY</h1>
 <p><svg xmlns="http://www.w3.org/2000/svg" width="288" height="336" version="1.1" viewBox="0 0 216 252">
     <g id="surface296">
         <path fill="#fff" fill-opacity="1" fill-rule="nonzero" stroke="none" d="M4.5 8h270v288H4.5zm0 0" transform="scale(.75)"/>
@@ -357,6 +369,9 @@ Country: US
     </text>
 </svg>
 </p>
+<aside class="notes" data-markdown>
+Here’s the basic principle of the <code>ofs-multitenant</code> plugin: namespace boundaries are an excellent point of separation for workloads owned by different organisations or organisational groupings. The default is full isolation with the proviso that the <code>default</code> namespace is marked <code>global</code>.
+</aside>
 </section>
 <section id="enable-router-access" class="level1 light-on-dark" data-bg="#6a2469" data-background="#6a2469">
 <h1>ENABLE ROUTER ACCESS</h1>
@@ -450,6 +465,9 @@ airbus        1064346
 boeing        1086658
 router-a      1064346
 router-b      1086658</code></pre>
+<aside class="notes" data-markdown>
+Here is how <code>ovs-multitenant</code> users set up connections between namespaces. The output of <code>oc get netnamespace</code> also conveniently shows the inner workings of the plugin: two namespaces with the same NETID can communicate with one another. (NETID 0 is special as it marks global namespaces.)
+</aside>
 </section>
 <section id="selective-isolation" class="level1 light-on-dark" data-bg="#6a2469" data-background="#6a2469">
 <h1>SELECTIVE ISOLATION</h1>
@@ -533,10 +551,16 @@ airbus        1020181
 boeing        1086658
 router-a      1086658
 router-b      1064346</code></pre>
+<aside class="notes" data-markdown>
+This is how connections can be severed. There are serious problems with the plugin’s imperative API - the outcome of API calls is often unintuitive, but that is for another discussion - but the approach has the virtue of simplicity.
+</aside>
 </section>
 <section id="network-policies" class="level1" data-bg="#fff44d" data-background="#fff44d">
 <h1>NETWORK POLICIES</h1>
 <p><img src="assets/images/goal.svg" alt="schematic of a typical pod network"/></p>
+<aside class="notes" data-markdown>
+However, the control afforded by the multitenant plugin was not deemed sufficient. Instead, the upstream project adopted a solution quite close to the declarative policy approach Red Hat proposed next.
+</aside>
 </section>
 <section id="audit" class="level1" data-bg="#fff44d" data-background="#fff44d">
 <h1>AUDIT</h1>
@@ -544,6 +568,9 @@ router-b      1064346</code></pre>
 <div class="tiny">
 Source: <a href="https://github.com/gerald1248/k8s-network-policy-viewer">github.com/gerald1248/k8s-network-policy-viewer</a>
 </div>
+<aside class="notes" data-markdown>
+Why should I care? I stumbled upon this as I was trying to obtain some metrics (percentage of namespaces covered by network policies, that kind of thing) from a cluster’s network policies. My expectation was that this would be a quick task, but that expectation proved to be overly optimistic.
+</aside>
 </section>
 <section id="implementation" class="level1 light-on-dark" data-bgcss="tw-bg-light-blue" data-state="tw-bg-light-blue">
 <h1>IMPLEMENTATION</h1>
@@ -582,6 +609,9 @@ Source: <a href="https://github.com/gerald1248/k8s-network-policy-viewer">github
     </text>
 </svg>
 </p>
+<aside class="notes" data-markdown>
+One problem, arguably, is that the spec was written by one party, to be implemented by another. The authors of the spec had little incentive to plump for something simple and lacking in features.
+</aside>
 </section>
 <section id="what-the-user-saw" class="level1 light-on-dark" data-bg="#000" data-background="#000">
 <h1>WHAT THE USER SAW</h1>
@@ -600,6 +630,9 @@ spec:
     - podSelector:
         matchLabels:
           app: httpd-alice</code></pre>
+<aside class="notes" data-markdown>
+This is a typical network policy. Coming from the multitenant plugin, I felt this was everything I had wished for. Out with the messy imperative API, in with the familiar look of a Kubernetes manifest.
+</aside>
 </section>
 <section id="user-all-at-sea-1" class="level1 light-on-dark" data-bg="#000" data-background="#000">
 <h1>USER ALL AT SEA (1)</h1>

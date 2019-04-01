@@ -26,7 +26,7 @@ center: true
 ```
 
 <aside class="notes" data-markdown>
-And what's pizza got to do with anything?
+This is an attempt to examine a worrying trend to every greater complexity in the Kubernetes world.
 </aside>
 
 # END USERS BEWARE
@@ -57,6 +57,7 @@ And what's pizza got to do with anything?
 <div class="tiny">Source: <a href="https://twitter.com/kelseyhightower/status/1099710178545434625">@kelseyhightower on 24 Feb 2019</a>.</div>
 
 <aside class="notes" data-markdown>
+It's worth stressing that nobody has done more to bring users to the Kubernetes platform than Kelsey Hightower. He also doesn't mention end users here, though it's probably fair to say he implies Kubernetes is not for them.
 </aside>
 
 # ALL HAPPY FAMILIES {bgcss=tw-bg-light-blue .light-on-dark}
@@ -82,6 +83,7 @@ And what's pizza got to do with anything?
 ```
 
 <aside class="notes" data-markdown>
+This position (there are platforms for end users and others for platform builders) is absolutely fine in a vibrant ecosystem of container schedulers. There's no doubt developers love Docker Swarm, for example.
 </aside>
 
 # SPLENDID ISOLATION {bgcss=tw-bg-light-blue .light-on-dark}
@@ -107,6 +109,7 @@ And what's pizza got to do with anything?
 ```
 
 <aside class="notes" data-markdown>
+However, that is not the ecosystem we have today. It seems odd to let Kubernetes displace all contenders only to say that it's for platform builders only.
 </aside>
 
 # PIZZA EFFECTS: IDENTITY
@@ -119,6 +122,10 @@ Kubernetes->OpenShift : role-based access control (RBAC)
 @enduml
 ```
 
+<aside class="notes" data-markdown>
+Since Red Hat embraced Kubernetes for OpenShift 3+, there have been numerous virtuous pizza effects, large and small. RBAC is an example that has worked particularly well.
+</aside>
+
 # PIZZA EFFECTS: NETWORKING
 
 ```{.render_plantuml args="-Sbackgroundcolor=transparent"}
@@ -130,6 +137,10 @@ Kubernetes->OpenShift : network policies
 @enduml
 ```
 
+<aside class="notes" data-markdown>
+Network policies have arguably been less successful. The question is whether network policies warrant the considerable amount of added complexity when placed alongside Red Hat's original `ovs-multitenant` plugin.
+</aside>
+
 # PIZZA EFFECTS: GENERIC 
 
 ```{.render_plantuml args="-Sbackgroundcolor=transparent"}
@@ -140,7 +151,11 @@ Kubernetes->OpenShift : declarative API objects
 @enduml
 ```
 
-# MULTI-TENANCY {bg=#6a2469 .light-on-dark}
+<aside class="notes" data-markdown>
+In very general terms, OpenShift fills an important functionality gap. Typically an imperative API is supplied via `oc`; the versino adopted upstream tends to be more generic, more powerful and far more complex.
+</aside>
+
+# MULTITENANCY {bg=#6a2469 .light-on-dark}
 
 ```render_a2sketch
 #=----------------------------#
@@ -167,6 +182,10 @@ Kubernetes->OpenShift : declarative API objects
 [b]: {"a2s:delref": true, "fill": "#27bdce", "fillStyle": "solid"}
 [w]: {"a2s:delref": true, "fill": "#fff", "fillStyle": "solid"}
 ```
+
+<aside class="notes" data-markdown>
+Here's the basic principle of the `ofs-multitenant` plugin: namespace boundaries are an excellent point of separation for workloads owned by different organisations or organisational groupings. The default is full isolation with the proviso that the `default` namespace is marked `global`.
+</aside>
 
 # ENABLE ROUTER ACCESS {bg=#6a2469 .light-on-dark}
 
@@ -207,6 +226,10 @@ router-a      1064346
 router-b      1086658
 ```
 
+<aside class="notes" data-markdown>
+Here is how `ovs-multitenant` users set up connections between namespaces. The output of `oc get netnamespace` also conveniently shows the inner workings of the plugin: two namespaces with the same NETID can communicate with one another. (NETID 0 is special as it marks global namespaces.)
+</aside>
+
 # SELECTIVE ISOLATION {bg=#6a2469 .light-on-dark}
 
 ```render_a2sketch
@@ -245,15 +268,27 @@ router-a      1086658
 router-b      1064346
 ```
 
+<aside class="notes" data-markdown>
+This is how connections can be severed. There are serious problems with the plugin's imperative API - the outcome of API calls is often unintuitive, but that is for another discussion - but the approach has the virtue of simplicity.
+</aside>
+
 # NETWORK POLICIES {bg=#fff44d}
 
 <img src="assets/images/goal.svg" alt="schematic of a typical pod network"/>
+
+<aside class="notes" data-markdown>
+However, the control afforded by the multitenant plugin was not deemed sufficient. Instead, the upstream project adopted a solution quite close to the declarative policy approach Red Hat proposed next.
+</aside>
 
 # AUDIT {bg=#fff44d}
 
 <img src="assets/images/network-policy-viewer.png" alt="screenshot of network policy viewer"/>
 
 <div class="tiny">Source: <a href="https://github.com/gerald1248/k8s-network-policy-viewer">github.com/gerald1248/k8s-network-policy-viewer</a></div>
+
+<aside class="notes" data-markdown>
+Why should I care? I stumbled upon this as I was trying to obtain some metrics (percentage of namespaces covered by network policies, that kind of thing) from a cluster's network policies. My expectation was that this would be a quick task, but that expectation proved to be overly optimistic.
+</aside>
 
 # IMPLEMENTATION {bgcss=tw-bg-light-blue .light-on-dark}
 
@@ -277,6 +312,10 @@ router-b      1064346
 [c]: {"a2s:type": "cloud", "a2s:delref": true, "fill": "#fff", "fillStyle": "solid"}
 ```
 
+<aside class="notes" data-markdown>
+One problem, arguably, is that the spec was written by one party, to be implemented by another. The authors of the spec had little incentive to plump for something simple and lacking in features.
+</aside>
+
 # WHAT THE USER SAW {bg=#000 .light-on-dark}
 
 ```yaml
@@ -296,6 +335,10 @@ spec:
         matchLabels:
           app: httpd-alice
 ```
+
+<aside class="notes" data-markdown>
+This is a typical network policy. Coming from the multitenant plugin, I felt this was everything I had wished for. Out with the messy imperative API, in with the familiar look of a Kubernetes manifest.
+</aside>
 
 # USER ALL AT SEA (1) {bg=#000 .light-on-dark}
 
