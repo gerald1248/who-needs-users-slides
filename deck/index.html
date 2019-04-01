@@ -293,7 +293,7 @@ Language: en
 Country: US
 --></g></svg></p>
 <aside class="notes" data-markdown>
-Network policies have arguably been less successful. The question is whether network policies warrant the considerable amount of added complexity when placed alongside Red Hat’s original <code>ovs-multitenant</code> plugin.
+Network policies have arguably been less successful. The question is whether network policies warrant the considerable amount of complexity when placed alongside Red Hat’s original <code>ovs-multitenant</code> plugin.
 </aside>
 </section>
 <section id="pizza-effects-generic" class="level1">
@@ -319,7 +319,7 @@ Language: en
 Country: US
 --></g></svg></p>
 <aside class="notes" data-markdown>
-In very general terms, OpenShift fills an important functionality gap. Typically an imperative API is supplied via <code>oc</code>; the versino adopted upstream tends to be more generic, more powerful and far more complex.
+In very general terms, OpenShift fills an important functionality gap. Typically an imperative API is supplied via <code>oc</code>; the version adopted upstream tends to be more generic, more powerful and far more complex.
 </aside>
 </section>
 <section id="multitenancy" class="level1 light-on-dark" data-bg="#6a2469" data-background="#6a2469">
@@ -370,7 +370,7 @@ In very general terms, OpenShift fills an important functionality gap. Typically
 </svg>
 </p>
 <aside class="notes" data-markdown>
-Here’s the basic principle of the <code>ofs-multitenant</code> plugin: namespace boundaries are an excellent point of separation for workloads owned by different organisations or organisational groupings. The default is full isolation with the proviso that the <code>default</code> namespace is marked <code>global</code>.
+Here’s the basic principle of the <code>ovs-multitenant</code> plugin: namespace boundaries are an excellent point of separation for workloads owned by different organisations or organisational groupings. The default is full isolation with the proviso that the <code>default</code> namespace is marked <code>global</code>.
 </aside>
 </section>
 <section id="enable-router-access" class="level1 light-on-dark" data-bg="#6a2469" data-background="#6a2469">
@@ -640,7 +640,9 @@ This is a typical network policy. Coming from the multitenant plugin, I felt thi
 <pre class="yaml"><code>podSelector: {}</code></pre>
 <p><small>is the opposite of:</small></p>
 <pre class="yaml"><code>podSelector: []</code></pre>
-<p>This is a very minor issue (and really a point of YAML syntax rather than NetworkPolicy objects), but it still leads to some policies in the wild whose effect is the exact opposite of what the author intended.</p>
+<aside class="notes" data-markdown>
+This is a very minor issue (and really a point of YAML syntax rather than NetworkPolicy objects), but it still leads to some policies in the wild whose effect is the exact opposite of what the author intended.
+</aside>
 </section>
 <section id="user-all-at-sea-2" class="level1 light-on-dark" data-bg="#000" data-background="#000">
 <h1>USER ALL AT SEA (2)</h1>

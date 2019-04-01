@@ -138,7 +138,7 @@ Kubernetes->OpenShift : network policies
 ```
 
 <aside class="notes" data-markdown>
-Network policies have arguably been less successful. The question is whether network policies warrant the considerable amount of added complexity when placed alongside Red Hat's original `ovs-multitenant` plugin.
+Network policies have arguably been less successful. The question is whether network policies warrant the considerable amount of complexity when placed alongside Red Hat's original `ovs-multitenant` plugin.
 </aside>
 
 # PIZZA EFFECTS: GENERIC 
@@ -152,7 +152,7 @@ Kubernetes->OpenShift : declarative API objects
 ```
 
 <aside class="notes" data-markdown>
-In very general terms, OpenShift fills an important functionality gap. Typically an imperative API is supplied via `oc`; the versino adopted upstream tends to be more generic, more powerful and far more complex.
+In very general terms, OpenShift fills an important functionality gap. Typically an imperative API is supplied via `oc`; the version adopted upstream tends to be more generic, more powerful and far more complex.
 </aside>
 
 # MULTITENANCY {bg=#6a2469 .light-on-dark}
@@ -184,7 +184,7 @@ In very general terms, OpenShift fills an important functionality gap. Typically
 ```
 
 <aside class="notes" data-markdown>
-Here's the basic principle of the `ofs-multitenant` plugin: namespace boundaries are an excellent point of separation for workloads owned by different organisations or organisational groupings. The default is full isolation with the proviso that the `default` namespace is marked `global`.
+Here's the basic principle of the `ovs-multitenant` plugin: namespace boundaries are an excellent point of separation for workloads owned by different organisations or organisational groupings. The default is full isolation with the proviso that the `default` namespace is marked `global`.
 </aside>
 
 # ENABLE ROUTER ACCESS {bg=#6a2469 .light-on-dark}
@@ -354,7 +354,9 @@ podSelector: {}
 podSelector: []
 ```
 
+<aside class="notes" data-markdown>
 This is a very minor issue (and really a point of YAML syntax rather than NetworkPolicy objects), but it still leads to some policies in the wild whose effect is the exact opposite of what the author intended.
+</aside>
 
 # USER ALL AT SEA (2) {bg=#000 .light-on-dark}
 
