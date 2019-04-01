@@ -278,6 +278,8 @@ This is how connections can be severed. There are serious problems with the plug
 
 <aside class="notes" data-markdown>
 However, the control afforded by the multitenant plugin was not deemed sufficient. Instead, the upstream project adopted a solution quite close to the declarative policy approach Red Hat proposed next.
+
+The key difference is that the isolation boundary is no longer the namespace but the pod.
 </aside>
 
 # AUDIT {bg=#fff44d}
@@ -352,6 +354,8 @@ podSelector: {}
 podSelector: []
 ```
 
+This is a very minor issue (and really a point of YAML syntax rather than NetworkPolicy objects), but it still leads to some policies in the wild whose effect is the exact opposite of what the author intended.
+
 # USER ALL AT SEA (2) {bg=#000 .light-on-dark}
 
 ```yaml
@@ -379,6 +383,12 @@ ingress:
 ```
 
 <div class="tiny">Source: <a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors">kubernetes.io/docs</a>.</div>
+
+<aside class="notes" data-markdown>
+This again is a YAML issue first and foremost, but it is worth asking why both `ingress` *and* `from` are arrays; and this before the user has run into the issue illustrated here.
+
+The problem is not so much the potential for confusion (substantial though that is) but the difficulty faced by anyone trying to make sense of dozens of network policy objects in the event of an outage. The scope for misreading is immense and the complexity of disentangling many network policies spread out across multiple namespaces doesn't bear thinking about.
+</aside>
 
 # WHAT THE PARSER DID
 
@@ -415,6 +425,10 @@ endif
 @enduml
 ```
 
+<aside class="notes" data-markdown>
+It is worth stepping through this flow from start to finish; note that the main source of complexity (policies whose effects affect pods in other namespaces) is explicitly omitted from the chart. 
+</aside>
+
 # USER PREFERENCE
 
 ```render_a2sketch
@@ -444,6 +458,10 @@ features |                                    • NetworkPolicy
 [c]: {"a2s:delref":true,"a2s:type":"circle"}
 ```
 
+<aside class="notes" data-markdown>
+It seems likely that for many cluster administrators, the less capable but much simpler `ovs-multitenant` option pioneered by OpenShift 3+ is the preferred option.
+</aside>
+
 # ENTER OPERATOR {bg=#000 .light-on-dark}
 
 ```yaml
@@ -456,6 +474,10 @@ metadata:
   annotations:
     networking.k8s.io/netnamespace-id: "100"
 ```
+
+<aside class="notes" data-markdown>
+Here is one possible solution that marries declarative YAML with the approach of the `ovs-multitenant` plugin. There is no need for an imperative API if we annotate the namespace objects and let an operator manage matching NetworkPolicy objects. Anyone who is happy to stick to namespace boundaries for isolation should be well served by this approach.
+</aside>
 
 # BEWARE ROUGH EDGES
 
@@ -485,6 +507,7 @@ metadata:
 <div class="tiny">Source: Cichoń, W. 2018. <a href="https://thenewstack.io/kubernetes-pioneer-tim-hockin-on-whats-real-and-whats-not">What's real and what's not</a>.</div>
 
 <aside class="notes" data-markdown>
+This strikes me as a constructive and helpful take on the point made by Kelsey Hightower on the opening slide. It's fair to make a distinction between cluster administrators and cluster users, but that isn't to say that all cluster administrators are platform builders.
 </aside>
 
 # <small>THANK YOU</small> {bgcss=tw-colorful .light-on-dark}

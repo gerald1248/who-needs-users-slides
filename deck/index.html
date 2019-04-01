@@ -559,7 +559,8 @@ This is how connections can be severed. There are serious problems with the plug
 <h1>NETWORK POLICIES</h1>
 <p><img src="assets/images/goal.svg" alt="schematic of a typical pod network"/></p>
 <aside class="notes" data-markdown>
-However, the control afforded by the multitenant plugin was not deemed sufficient. Instead, the upstream project adopted a solution quite close to the declarative policy approach Red Hat proposed next.
+<p>However, the control afforded by the multitenant plugin was not deemed sufficient. Instead, the upstream project adopted a solution quite close to the declarative policy approach Red Hat proposed next.</p>
+The key difference is that the isolation boundary is no longer the namespace but the pod.
 </aside>
 </section>
 <section id="audit" class="level1" data-bg="#fff44d" data-background="#fff44d">
@@ -639,6 +640,7 @@ This is a typical network policy. Coming from the multitenant plugin, I felt thi
 <pre class="yaml"><code>podSelector: {}</code></pre>
 <p><small>is the opposite of:</small></p>
 <pre class="yaml"><code>podSelector: []</code></pre>
+<p>This is a very minor issue (and really a point of YAML syntax rather than NetworkPolicy objects), but it still leads to some policies in the wild whose effect is the exact opposite of what the author intended.</p>
 </section>
 <section id="user-all-at-sea-2" class="level1 light-on-dark" data-bg="#000" data-background="#000">
 <h1>USER ALL AT SEA (2)</h1>
@@ -662,6 +664,10 @@ This is a typical network policy. Coming from the multitenant plugin, I felt thi
 <div class="tiny">
 Source: <a href="https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors">kubernetes.io/docs</a>.
 </div>
+<aside class="notes" data-markdown>
+<p>This again is a YAML issue first and foremost, but it is worth asking why both <code>ingress</code> <em>and</em> <code>from</code> are arrays; and this before the user has run into the issue illustrated here.</p>
+The problem is not so much the potential for confusion (substantial though that is) but the difficulty faced by anyone trying to make sense of dozens of network policy objects in the event of an outage. The scope for misreading is immense and the complexity of disentangling many network policies spread out across multiple namespaces doesn’t bear thinking about.
+</aside>
 </section>
 <section id="what-the-parser-did" class="level1">
 <h1>WHAT THE PARSER DID</h1>
@@ -710,6 +716,9 @@ Default Encoding: UTF-8
 Language: en
 Country: US
 --></g></svg></p>
+<aside class="notes" data-markdown>
+It is worth stepping through this flow from start to finish; note that the main source of complexity (policies whose effects affect pods in other namespaces) is explicitly omitted from the chart.
+</aside>
 </section>
 <section id="user-preference" class="level1">
 <h1>USER PREFERENCE</h1>
@@ -794,6 +803,9 @@ Country: US
     </text>
 </svg>
 </p>
+<aside class="notes" data-markdown>
+It seems likely that for many cluster administrators, the less capable but much simpler <code>ovs-multitenant</code> option pioneered by OpenShift 3+ is the preferred option.
+</aside>
 </section>
 <section id="enter-operator" class="level1 light-on-dark" data-bg="#000" data-background="#000">
 <h1>ENTER OPERATOR</h1>
@@ -805,6 +817,9 @@ metadata:
     app: ingress-isolated-whitelist
   annotations:
     networking.k8s.io/netnamespace-id: &quot;100&quot;</code></pre>
+<aside class="notes" data-markdown>
+Here is one possible solution that marries declarative YAML with the approach of the <code>ovs-multitenant</code> plugin. There is no need for an imperative API if we annotate the namespace objects and let an operator manage matching NetworkPolicy objects. Anyone who is happy to stick to namespace boundaries for isolation should be well served by this approach.
+</aside>
 </section>
 <section id="beware-rough-edges" class="level1">
 <h1>BEWARE ROUGH EDGES</h1>
@@ -859,6 +874,7 @@ metadata:
 Source: Cichoń, W. 2018. <a href="https://thenewstack.io/kubernetes-pioneer-tim-hockin-on-whats-real-and-whats-not">What’s real and what’s not</a>.
 </div>
 <aside class="notes" data-markdown>
+This strikes me as a constructive and helpful take on the point made by Kelsey Hightower on the opening slide. It’s fair to make a distinction between cluster administrators and cluster users, but that isn’t to say that all cluster administrators are platform builders.
 </aside>
 </section>
 <section id="thank-you" class="level1 light-on-dark" data-bgcss="tw-colorful" data-state="tw-colorful">
