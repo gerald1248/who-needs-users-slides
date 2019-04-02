@@ -355,7 +355,7 @@ podSelector: []
 ```
 
 <aside class="notes" data-markdown>
-This is a very minor issue (and really a point of YAML syntax rather than NetworkPolicy objects), but it still leads to some policies in the wild whose effect is the exact opposite of what the author intended.
+This is a very minor issue (and really a point of YAML syntax rather than NetworkPolicy objects), but it still leads to some policies in the wild whose effect is the exact opposite of what the author intended. What's more, both selectors are entirely idiomatic.
 </aside>
 
 # USER ALL AT SEA (2) {bg=#000 .light-on-dark}
