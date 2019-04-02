@@ -641,7 +641,7 @@ This is a typical network policy. Coming from the multitenant plugin, I felt thi
 <p><small>is the opposite of:</small></p>
 <pre class="yaml"><code>podSelector: []</code></pre>
 <aside class="notes" data-markdown>
-This is a very minor issue (and really a point of YAML syntax rather than NetworkPolicy objects), but it still leads to some policies in the wild whose effect is the exact opposite of what the author intended.
+This is a very minor issue (and really a point of YAML syntax rather than NetworkPolicy objects), but it still leads to some policies in the wild whose effect is the exact opposite of what the author intended. What’s more, both selectors are entirely idiomatic.
 </aside>
 </section>
 <section id="user-all-at-sea-2" class="level1 light-on-dark" data-bg="#000" data-background="#000">
@@ -814,9 +814,14 @@ It seems likely that for many cluster administrators, the less capable but much 
 <pre class="yaml"><code>apiVersion: v1
 kind: Namespace
 metadata:
-  name: ingress-isolated-whitelist
-  labels:
-    app: ingress-isolated-whitelist
+  name: boeing
+  annotations:
+    networking.k8s.io/netnamespace-id: &quot;100&quot;
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: router-a
   annotations:
     networking.k8s.io/netnamespace-id: &quot;100&quot;</code></pre>
 <aside class="notes" data-markdown>

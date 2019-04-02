@@ -470,9 +470,14 @@ It seems likely that for many cluster administrators, the less capable but much 
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: ingress-isolated-whitelist
-  labels:
-    app: ingress-isolated-whitelist
+  name: boeing
+  annotations:
+    networking.k8s.io/netnamespace-id: "100"
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: router-a
   annotations:
     networking.k8s.io/netnamespace-id: "100"
 ```
